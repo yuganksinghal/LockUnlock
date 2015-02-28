@@ -1,0 +1,23 @@
+#lock {
+    -o-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    transition: all .5s linear;
+    position: absolute;
+    border-radius: 50%;
+    border: 5px solid blue;
+    width: 40px;
+    height: 40px;
+}
+#lockslot {
+    -o-transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .1s;
+    height: 30px;
+    width: 0px;
+    border-radius: 50%;
+    border: 3px solid blue;
+    margin: auto;
+    margin-top: 2px;
+}
