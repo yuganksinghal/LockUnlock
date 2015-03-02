@@ -6,6 +6,10 @@ var rotationanswer = 0;
 var xanswer = 0;
 var yanswer = 0;
 
+var r = 0;
+var g = 0;
+var b = 0;
+
 jQuery.fn.rotate = function (degrees) {
     $(this).css({
         'transform': 'rotate(' + degrees + 'deg)',
@@ -34,21 +38,33 @@ jQuery.fn.generateanswer = function () {
 };
 
 jQuery.fn.generatelock = function () {
-    alert("called");
     rotation = Math.floor((Math.random() * 180) - 89);
-    x = Math.floor((Math.random() * (Window.width() - 50)) + 1);
-    y = Math.floor((Math.random() * (Window.height() - 50)) + 1);
+    x = Math.floor((Math.random() * ($(window).width() - 50)) + 1);
+    y = Math.floor((Math.random() * ($(window).height() - 50)) + 1);
+
+    alert(x + y + rotation)
 
     $('#lockslot').rotate(rotation);
     $('#lock').shiftx(x);
     $('#lock').shifty(y);
 };
 
-$(document).load(function () {
+jQuery.fn.finddifference = function() {
+    r = 255 - Math.abs((x-xanswer));
+    g = 255- Math.abs((y-yanswer));
+    b = 255- Math.abs((rotate-rotateanswer));
+};
+
+jQuery.fn.changecolor = functions() {
+    
+};
+
+$(document).ready(function () {
     $(this).generatelock();
 });
 
-$(document).keyup(function () {
+
+$(document).keypress(function () {
     // alert(event.which);
     if ((event.which == 101) && (rotation <= 90)) {
         $('#lockslot').rotate(rotation++);
