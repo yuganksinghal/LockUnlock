@@ -80,17 +80,17 @@ $(document).keypress(function () {
     } else if ((event.which == 113) && (rotation >= -90)) {
         $('#lockslot').rotate(rotation--);
         console.log('Q');
-    } else if ((event.which == 119) && ((y) >= 0)) {
-        $('#lock').shifty(y--);
+    } else if ((event.which == 119) && ((y-1) >= 0)) {
+        $('#lock').shifty(--y);
         console.log('W');
-    } else if ((event.which == 115) && ((y) <= totalrows)) {
-        $('#lock').shifty(y++);
+    } else if ((event.which == 115) && ((y+1) <= totalrows)) {
+        $('#lock').shifty(++y);
         console.log('S');
-    } else if (event.which == 97 && ((x) >= 0)) {
-        $('#lock').shiftx(x--);
+    } else if (event.which == 97 && ((x-1) >= 0)) {
+        $('#lock').shiftx(--x);
         console.log('A');
-    } else if (event.which == 100 && ((x) <= totalcolumns)) {
-        $('#lock').shiftx(x++);
+    } else if (event.which == 100 && ((x+1) <= totalcolumns)) {
+        $('#lock').shiftx(++x);
         console.log('D');
     }
     $('.changeable').finddifference();
