@@ -13,9 +13,9 @@ var b = 0;
 jQuery.fn.rotate = function (degrees) {
     $(this).css({
         'transform': 'rotate(' + degrees + 'deg)',
-            '-webkit-transform': 'rotate(' + degrees + 'deg)',
-            '-moz-transform': 'rotate(' + degrees + 'deg)',
-            '-o-transform': 'rotate(' + degrees + 'deg)'
+        '-webkit-transform': 'rotate(' + degrees + 'deg)',
+        '-moz-transform': 'rotate(' + degrees + 'deg)',
+        '-o-transform': 'rotate(' + degrees + 'deg)'
     });
 };
 
@@ -42,31 +42,31 @@ jQuery.fn.generatelock = function () {
     x = Math.floor((Math.random() * ($(window).width() - 50)) + 1);
     y = Math.floor((Math.random() * ($(window).height() - 50)) + 1);
 
-    alert(x + y + rotation)
-
     $('#lockslot').rotate(rotation);
     $('#lock').shiftx(x);
     $('#lock').shifty(y);
+    $('.changeable').findifference();
 };
 
 jQuery.fn.finddifference = function() {
     r = 255 - Math.abs((x-xanswer));
-    g = 255- Math.abs((y-yanswer));
-    b = 255- Math.abs((rotate-rotateanswer));
+    g = 255 - Math.abs((y-yanswer));
+    b = 255 - Math.abs((rotation-rotationanswer));
+    $('.changeable').changecolor();
 };
 
-jQuery.fn.changecolor = functions() {
-    
+jQuery.fn.changecolor = function() {
+    $(this).css({'border-color': 'rgb('+ r + ',' + g + ',' + b + ')'});
+    //$('#lockslot').css({'border-color': 'rgb('+ r + ',' + g + ',' + b + ')'});
+    //$('#lock').css({'border-color': 'rgb('+ r + ',' + g + ',' + b + ')'});
 };
 
 $(document).ready(function () {
     $(this).generatelock();
 });
 
-
 $(document).keypress(function () {
-    // alert(event.which);
-    if ((event.which == 101) && (rotation <= 90)) {
+    if ((event.which == 101) && (rotation <= 90)) {             
         $('#lockslot').rotate(rotation++);
         console.log('E');
     } else if (event.which == 113 && (rotation >= -90)) {
@@ -85,4 +85,5 @@ $(document).keypress(function () {
         $('#lock').shiftx(x++);
         console.log('D');
     }
+    $('.changeable').finddifference();
 });
