@@ -22,3 +22,11 @@
     margin: auto;
     margin-top: 2px;
 }
+
+#instructions {
+    font-family: 'Quicksand', sans-serif;
+    font-weight:  700;
+    position: fixed;
+    top: 96%;
+    left: 40%;
+}

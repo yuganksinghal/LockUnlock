@@ -17,10 +17,10 @@
 
 jQuery.fn.rotate = function (degrees) {
     $(this).css({
-        'transform': 'rotate(' + degrees + 'deg)',
-        '-webkit-transform': 'rotate(' + degrees + 'deg)',
-        '-moz-transform': 'rotate(' + degrees + 'deg)',
-        '-o-transform': 'rotate(' + degrees + 'deg)'
+        'transform': 'rotate(' + (3 * degrees) + 'deg)',
+        '-webkit-transform': 'rotate(' + (3 * degrees) + 'deg)',
+        '-moz-transform': 'rotate(' + (3 * degrees) + 'deg)',
+        '-o-transform': 'rotate(' + (3 * degrees) + 'deg)'
     });
 };
 
@@ -50,7 +50,7 @@ jQuery.fn.finddifference = function() {
 };
 
 jQuery.fn.generatelock = function () {
-    rotation = Math.floor((Math.random() * 180) - 89);
+    rotation = Math.floor((Math.random() * 60) - 30);
     x = Math.floor(Math.random() * totalcolumns);
     y = Math.floor(Math.random() * totalrows);
 
@@ -66,19 +66,19 @@ jQuery.fn.changecolor = function() {
 
 $(document).ready(function () {
 
-    totalcolumns = Math.floor($(window).width()/50);
-    totalrows = Math.floor($(window).height()/50);
+    totalcolumns = (Math.floor($(window).width()/50) - 1);
+    totalrows = (Math.floor($(window).height()/50) - 1);
 
     $(this).generateanswer();
     $(this).generatelock();
 });
 
 $(document).keypress(function () {
-    if ((event.which == 101) && (rotation <= 90)) {             
-        $('#lockslot').rotate(rotation++);
+    if ((event.which == 101) && (rotation <= 30)) {             
+        $('#lockslot').rotate(++rotation);
         console.log('E');
-    } else if ((event.which == 113) && (rotation >= -90)) {
-        $('#lockslot').rotate(rotation--);
+    } else if ((event.which == 113) && (rotation >= -30)) {
+        $('#lockslot').rotate(--rotation);
         console.log('Q');
     } else if ((event.which == 119) && ((y-1) >= 0)) {
         $('#lock').shifty(--y);
@@ -94,4 +94,9 @@ $(document).keypress(function () {
         console.log('D');
     }
     $('.changeable').finddifference();
+
+    if ((Math.abs(x-xanswer) == 0) && (Math.abs(y-yanswer) == 0) && (Math.abs(rotation-rotationanswer) <= 10)) {
+        $(document).generateanswer();
+        $(document).generatelock();
+    }
 });
