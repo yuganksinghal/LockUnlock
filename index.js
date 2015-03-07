@@ -37,7 +37,7 @@ jQuery.fn.shifty = function (shift) {
 };
 
 jQuery.fn.generateanswer = function () {
-    rotationanswer = Math.floor((Math.random() * 180) - 89);
+    rotationanswer = Math.floor((Math.random() * 60) - 30);
     xanswer = Math.floor(Math.random() * totalcolumns);
     yanswer = Math.floor(Math.random() * totalrows);
 };
