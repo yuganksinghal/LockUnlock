@@ -73,7 +73,7 @@ $(document).ready(function () {
     $(this).generatelock();
 });
 
-$(document).keypress(function () {
+$(document).keypress(function (event) {
     if ((event.which == 101) && (rotation <= 30)) {             
         $('#lockslot').rotate(++rotation);
         console.log('E');
@@ -92,7 +92,7 @@ $(document).keypress(function () {
     } else if (event.which == 100 && ((x+1) <= totalcolumns)) {
         $('#lock').shiftx(++x);
         console.log('D');
-    }
+    } /*else if (event.which == )*/
     $('.changeable').finddifference();
 
     if ((Math.abs(x-xanswer) == 0) && (Math.abs(y-yanswer) == 0) && (Math.abs(rotation-rotationanswer) <= 10)) {
