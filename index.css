@@ -1,8 +1,8 @@
 #lock {
-    -o-transition: all .5s linear;
-    -moz-transition: all .5s linear;
-    -webkit-transition: all .5s linear;
-    transition: all .5s linear;
+    -o-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
     position: absolute;
     border-radius: 50%;
     border: 5px solid blue;
@@ -11,9 +11,9 @@
 }
 
 #lockslot {
-    -o-transition: all .5s;
-    -moz-transition: all .5s;
-    -webkit-transition: all .5s;
+    -o-transition: all .1s;
+    -moz-transition: all .1s;
+    -webkit-transition: all .1s;
     transition: all .1s;
     height: 30px;
     width: 0px;
@@ -23,10 +23,46 @@
     margin-top: 2px;
 }
 
+.changeable {
+    display: none;
+}
+
 #instructions {
     font-family: 'Quicksand', sans-serif;
     font-weight:  700;
     position: fixed;
     top: 96%;
     left: 40%;
+}
+
+.startup{
+    font-family: 'Quicksand', sans-serif;
+    font-weight:  700;
+}
+
+#gametitle{
+    -o-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    transition: all .5s linear;
+    position: absolute;
+    font-size: 35px;
+    top: 35%;
+    left: 45%;
+}
+
+#start{
+    -o-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    transition: all .5s linear;
+    position: absolute;
+    top: 50%;
+    left: 46%;
+    cursor: pointer;
+}
+
+#start:hover{
+    background-color: black;
+    color: white;
 }
