@@ -13,6 +13,8 @@
     var totalcolumns = 0;
     var totalrows = 0;
 
+    var xconst = 0;
+    var yconst = 0;
 
 
     jQuery.fn.rotate = function (degrees) {
@@ -43,9 +45,9 @@
     };
 
     jQuery.fn.finddifference = function() {
-        r = 255 - Math.abs(50*(x-xanswer));
-        g = 255 - Math.abs(50*(y-yanswer));
-        b = 255 - Math.abs((rotation-rotationanswer));
+        r = 255 - Math.abs(xconst*(x-xanswer));
+        g = 255 - Math.abs(yconst*(y-yanswer));
+        b = 255 - Math.abs(Math.floor((255/60)) * (rotation-rotationanswer));
         $('.changeable').changecolor();
     };
 
@@ -68,6 +70,9 @@
 
         totalcolumns = (Math.floor($(window).width()/50) - 1);
         totalrows = (Math.floor($(window).height()/50) - 1);
+        xconst = (Math.floor(255 / totalcolumns));
+        yconst = (Math.floor(255/ totalrows));
+
 
         $('#start').click(function () {
 
