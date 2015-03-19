@@ -35,6 +35,15 @@
     left: 40%;
 }
 
+
+#score {
+    font-family: 'Quicksand', sans-serif;
+    font-weight:  700;
+    position: fixed;
+    top: 4%;
+    left: 95%;
+}
+
 .startup{
     font-family: 'Quicksand', sans-serif;
     font-weight:  700;

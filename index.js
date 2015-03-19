@@ -16,6 +16,7 @@
     var xconst = 0;
     var yconst = 0;
 
+    var score = 0;
 
     jQuery.fn.rotate = function (degrees) {
         $(this).css({
@@ -72,7 +73,7 @@
         totalrows = (Math.floor($(window).height()/50) - 1);
         xconst = (Math.floor(255 / totalcolumns));
         yconst = (Math.floor(255/ totalrows));
-
+        score = 0;
 
         $('#start').click(function () {
 
@@ -107,6 +108,8 @@
             $('.changeable').finddifference();
 
             if ((Math.abs(x-xanswer) == 0) && (Math.abs(y-yanswer) == 0) && (Math.abs(rotation-rotationanswer) <= 10)) {
+                ++score;
+                $('#score').html(score);
                 $(document).generateanswer();
                 $(document).generatelock();
             }
